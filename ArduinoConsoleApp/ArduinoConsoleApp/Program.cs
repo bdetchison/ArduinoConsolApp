@@ -5,13 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO.Ports;
 using System.IO;
+using System.Threading;
 
 namespace ArduinoConsoleApp
 {
     class Program
     {
-
-        private static int counter = 0;
         private static int showLight = 0;
      
 
@@ -20,12 +19,8 @@ namespace ArduinoConsoleApp
             SerialPort serialPort = new SerialPort();
             serialPort.BaudRate = 9600;
             serialPort.PortName = "COM5";
-
-
-            SerialPort inputSerialPort = new SerialPort();
-            inputSerialPort.BaudRate = 9600;
-            inputSerialPort.PortName = "COM6";
-
+            serialPort.Encoding = Encoding.ASCII;
+        
 
             try
             {
@@ -33,34 +28,29 @@ namespace ArduinoConsoleApp
                 {
                     serialPort.Open();
                 }
-                
+
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-
-          
-
+            
             serialPort.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(DataRecieved);
-
-   
 
             while (true)
             {
-                if (counter % 10 ==0)
-                {
-                    if (showLight==0)
-                    {
-                        showLight = 1;
-                    }
-                    else
-                    {
-                        showLight = 0;
-                    }
+                Thread.Sleep(10000);
 
-                    serialPort.Write(showLight.ToString());
+                if (showLight == 0)
+                {
+                    showLight = 1;
                 }
+                else
+                {
+                    showLight = 0;
+                }
+
+                serialPort.WriteLine(showLight.ToString());
             }
         }
 
@@ -71,7 +61,6 @@ namespace ArduinoConsoleApp
             {
                 SerialPort serialPort = (SerialPort)sender;
                 Console.Write(serialPort.ReadLine() + Environment.NewLine);
-                Console.Write(counter + Environment.NewLine);
                 counter++;
             }
             catch (Exception ex)
@@ -79,7 +68,5 @@ namespace ArduinoConsoleApp
                 throw ex;
             }
         }
-
-      
     }
 }
