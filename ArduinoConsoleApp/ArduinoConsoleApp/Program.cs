@@ -61,7 +61,7 @@ namespace ArduinoConsoleApp
             {
                 SerialPort serialPort = (SerialPort)sender;
                 Console.Write(serialPort.ReadLine() + Environment.NewLine);
-                counter++;
+                //counter++;
             }
             catch (Exception ex)
             {
