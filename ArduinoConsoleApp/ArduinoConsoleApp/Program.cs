@@ -71,8 +71,6 @@ namespace ArduinoConsoleApp
 
         private static void DataRecieved(object sender, SerialDataReceivedEventArgs e)
         {
-            var now = DateTime.Now;
-            //throw new NotImplementedException();
             try
             {
                 SerialPort serialPort = (SerialPort)sender;
@@ -82,8 +80,7 @@ namespace ArduinoConsoleApp
                 {
                     if (vibrationData.Count > 0)
                     {
-                        //integration
-                        InsertData(123.234, now);
+                        InsertData(VelocityCalculator.CalculateVelocity(vibrationData), DateTime.Now);
                         vibrationData.Clear();
                     }
                 }
