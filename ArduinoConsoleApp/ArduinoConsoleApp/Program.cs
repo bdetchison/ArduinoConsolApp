@@ -87,7 +87,6 @@ namespace ArduinoConsoleApp
                 else
                 {
                     Console.Write(data + Environment.NewLine);
-                    Console.Write(now + Environment.NewLine);
 
                     var splitData = data.Replace("\r","").Split(':');
 
@@ -95,7 +94,6 @@ namespace ArduinoConsoleApp
                     {
                         vibrationData.Add(new VibrationData
                         {
-                            Date = now,
                             x = float.Parse(splitData[1], CultureInfo.InvariantCulture.NumberFormat),
                             y = float.Parse(splitData[2], CultureInfo.InvariantCulture.NumberFormat),
                             z = float.Parse(splitData[3], CultureInfo.InvariantCulture.NumberFormat),
