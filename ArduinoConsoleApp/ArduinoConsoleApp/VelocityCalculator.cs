@@ -13,7 +13,7 @@ namespace ArduinoConsoleApp
             //rough estimation of 
             var firstReading = vibrationData.First();
             var lastReading = vibrationData.Last();
-            var timeInSeconds = 3;  //Assume readings taken over 3 seconds
+            var timeInSeconds = 2;  //Assume readings taken over 3 seconds
 
             var xVelocity = IntegrateAccelerometerData(firstReading.x, lastReading.x, timeInSeconds);
             var yVelocity = IntegrateAccelerometerData(firstReading.y, lastReading.y, timeInSeconds);
