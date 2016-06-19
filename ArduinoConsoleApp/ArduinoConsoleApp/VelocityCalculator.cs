@@ -23,9 +23,16 @@ namespace ArduinoConsoleApp
             return Math.Sqrt( Math.Pow(xVelocity,2) + Math.Pow(yVelocity,2) + Math.Pow(zVelocity,2));
         }
 
-        private static double IntegrateAccelerometerData(double before, double after, int timeInSeconds)
+        private static float IntegrateAccelerometerData(float before, float after, int timeInSeconds)
         {
-            return (after - before) / (timeInSeconds);
+            return (ConvertGtoIps(after) - ConvertGtoIps(before)) / (timeInSeconds);
+        }
+
+
+        private static float ConvertGtoIps(float number)
+        {
+            return number;
+            //return number * 386.08858267716f;
         }
 
 
