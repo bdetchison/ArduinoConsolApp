@@ -12,12 +12,8 @@ namespace ArduinoConsoleApp
 {
     public class SerialPortCommunicator
     {
-
-        private ISerialPortDataReceiver serialDataPortReceiver;
-
         public SerialPort LocalSerialPort { get; set; }
-
-
+        
         public SerialPortCommunicator(ISerialPortDataReceiver dataPointReceiver)
         {
             LocalSerialPort = new SerialPort();
