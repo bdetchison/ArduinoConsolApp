@@ -18,7 +18,7 @@ namespace ArduinoConsoleApp
         private static int showLight = 0;
         private static DateTime lastTimeGathered;
         private static SerialPortCommunicator serialPortCommunicator;
-        private static ArduinoDataReceiver arduinoDataReceiver;
+        private static ISerialPortDataReceiver arduinoDataReceiver;
 
         static void Main(string[] args)
         {

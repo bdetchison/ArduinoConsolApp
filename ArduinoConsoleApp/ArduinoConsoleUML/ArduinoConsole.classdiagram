@@ -1,26 +1,96 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="5838b906-7982-4ca3-bae2-6999cca491c9" name="ArduinoConsole" linkedPackageId="958721e1-3e32-4e34-97b2-ef3d1ca0e118" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="e1e0dfa1-254f-4483-ac98-8bc8e8259acc">
-      <profileInstance Id="b22c83e5-4728-4be9-a45d-78b9caf365ad" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="66d5e80a-811c-4beb-bdf7-8514b1314a26">
-      <profileInstance Id="1a5c65c6-7fb8-47e7-9271-0c514734b1ca" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="a61910b1-86db-43c8-9dab-25e1b0be24fc" name="ArduinoDataReceiver" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="f24ee272-4087-4683-98a1-7da645f31fbc" />
+        <suppliersInternal>
+          <dependency Id="d17f9f74-7cb2-4b76-9a4d-36f039b83160">
+            <interfaceMoniker Id="4e6821b2-7f2a-4427-a542-651989ad2d47" LastKnownName="ISerialPortDataReceiver" />
+            <elementDefinition Id="1f8d35fc-4db2-4436-9d4e-a8c529dd6d60" />
+          </dependency>
+          <dependency Id="c16b7c3f-930a-43f8-aee0-a43180063781">
+            <classMoniker Id="ce14c17e-4707-4730-b784-fcc7a9e36aac" LastKnownName="VelocityCalculator" />
+            <elementDefinition Id="bc7646bf-88ca-494b-a3d1-86d1314a76a9" />
+          </dependency>
+        </suppliersInternal>
+        <targetEnds>
+          <association Id="846e1cc7-01a2-4097-94a6-591ebe677bdf" isDerived="false" sourceEndRoleName="ArduinoDataReceiver" targetEndRoleName="DataAccess" isLeaf="false" isAbstract="false">
+            <classMoniker Id="f2b48b0f-be97-4e00-9f44-baa7032a76e6" LastKnownName="DataAccess" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b374d3df-e836-4b1e-96ec-9a5a8a2bbc37" name="ArduinoDataReceiver" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="6b37b21a-2864-4b99-a99e-529b1388779b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="de06b834-816f-4299-980e-7a65e48cb57e" name="DataAccess" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <elementDefinition Id="8b2a4bcc-d070-4111-a203-838e4b464920" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="791f5328-8e6a-4d9f-a50e-77e604a8b086" />
+          </association>
+          <association Id="c1a8be7e-a803-488d-97ca-f10c0e30ff67" isDerived="false" sourceEndRoleName="ArduinoDataReceiver" targetEndRoleName="VibrationData" isLeaf="false" isAbstract="false">
+            <classMoniker Id="a26b7fff-67ed-4571-86ff-0449bb78ae24" LastKnownName="VibrationData" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="68e9aed3-d323-46e0-9e03-e49835160f21" name="ArduinoDataReceiver" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="4a9d85e0-69dd-4906-ae2c-21778dad2273" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ed18ce3e-c060-4e36-984d-c9cf09cc13aa" name="VibrationData" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <lowerValueInternal>
+                    <literalString Id="1a25227c-1cca-48fe-9cff-58eed9a450f2" name="Lower" value="N">
+                      <elementDefinition Id="12c9888c-adf4-4667-82c2-aa88276cc6ae" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="906d1d5c-9a51-4a3c-bffe-0ef5c4037c36" name="Upper" value="N">
+                      <elementDefinition Id="7969a5d8-fa98-4c64-9969-c5c445fdf716" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="8919bc0c-0249-4f3b-9d43-c44bbb171fb8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e460c040-aabd-4150-be12-dc5044c7ac45" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="b40aaefb-4770-4b71-a6e4-3d9e13f817af" name="vibrationData" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d947d9d6-0973-4025-97fa-13021f21bb73" />
+          </property>
+          <property Id="623f861c-1eae-4b31-8e95-ac1224d7c6e4" name="dataAccess" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f4789f01-39bc-4266-bb3e-509827f6b237" />
+          </property>
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
-          <operation Id="145f7de4-0d5f-46d6-ad62-3c610dbac3bb" name="Main" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="145f7de4-0d5f-46d6-ad62-3c610dbac3bb" name="ArduinoDataReceiver" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="72ce0b9d-1481-42ef-8105-35daf97787e9" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c41d7558-4226-420e-9d2f-2a07f15027c4" name="configFilePath" direction="In" isUnique="false">
+                  <elementDefinition Id="cb05234e-cd8f-4d5a-afe8-daaf927ab4ed" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="5a32b518-f2a5-42fd-a579-88aea0ed3885" name="DataReceived" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="6c5e604a-018b-45b0-9c37-b4d91c196a56" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b3fc129f-3be4-4d4c-a9eb-ba2a72fb39ad" name="sender" direction="In" isUnique="false">
+                  <elementDefinition Id="4f2ea4e9-f487-4ed3-8c21-6036d304faf1" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3b4ec070-5d01-4e69-a177-bdf2772cf394" name="e" direction="In" isUnique="false">
+                  <elementDefinition Id="ed2d9a56-248a-43c0-88eb-8675f904d87d" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -28,6 +98,11 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="f2b48b0f-be97-4e00-9f44-baa7032a76e6" name="DataAccess" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="1c2129ab-31c1-44b1-9c2d-f4295c3ab1c4" />
+        <ownedAttributesInternal>
+          <property Id="a08cbd57-3d3b-4bb4-91dc-acc700282b63" name="connectionString" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3ad8d219-166a-4fda-987a-a584e29c6121" />
+          </property>
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="8924b4ef-c8bf-40c3-9513-258682069e4a" name="InsertData" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="65298225-7c89-427e-a9ad-f9debbc982fb" />
@@ -48,6 +123,30 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="c0b68dbf-9fc9-4608-9302-1f47c3c9456a" name="Program" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="dd8ed4b6-284e-4c8f-9a4b-1ac1e36fe508" />
+        <suppliersInternal>
+          <dependency Id="0974f908-fa98-44c1-957c-4c3e3010c1f4">
+            <interfaceMoniker Id="4e6821b2-7f2a-4427-a542-651989ad2d47" LastKnownName="ISerialPortDataReceiver" />
+            <elementDefinition Id="4f02cab0-493c-4080-b13e-80ca1d6ccda7" />
+          </dependency>
+          <dependency Id="63615ae4-249e-48ac-b862-7f4f8d0c17ba">
+            <classMoniker Id="4d66a6b4-d2f9-4e2a-bc93-24df93724a3b" LastKnownName="SerialPortCommunicator" />
+            <elementDefinition Id="22f54a11-0840-47d8-b179-a3a9cdee8cc1" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="c828610e-843b-40fd-a70e-d4c7626c2b2c" name="showLight" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3a7c5c68-96ed-415e-8324-632100833887" />
+          </property>
+          <property Id="41463777-4ec1-43d1-9525-3402523d9c42" name="lastTimeGathered" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="85bd0afe-698b-410b-a1fd-e248e5c4f3de" />
+          </property>
+          <property Id="98f09f23-74d8-452a-b858-4d250ca4ab31" name="serialPortCommunicator" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="44e5c6fa-2826-44e5-b747-63e9b4eed8db" />
+          </property>
+          <property Id="52644d52-7028-4de4-8c84-02934772d3bf" name="arduinoDataReceiver" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="9a3c8a25-0bea-4393-8e91-74d5d67185e1" />
+          </property>
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="2324b1b7-d77f-4781-af05-ab310480bd72" name="Main" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="83539106-1648-494e-a386-b337184ab027" />
@@ -58,14 +157,68 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="4d66a6b4-d2f9-4e2a-bc93-24df93724a3b" name="SerialPortCommunicator" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="16c4729b-a6e1-404b-97c6-69a3f58303a6" />
+        <ownedAttributesInternal>
+          <property Id="58eb6966-aba9-47c9-b222-f0ee5e4ea414" name="LocalSerialPort" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ca6131e5-6caf-449e-917b-7782828aa1e0" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="b7abd82b-fa2d-4bcd-a1c1-c08b564f646b" name="SerialPortCommunicator" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="75130e96-ead1-4e82-be0c-9d4ff9b503f5" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="03c890b1-6769-449f-b380-a233022ecf4f" name="dataPointReceiver" direction="In" isUnique="false">
+                  <elementDefinition Id="01c1498c-0b55-45ac-8186-638c9050be9c" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
       <class Id="ce14c17e-4707-4730-b784-fcc7a9e36aac" name="VelocityCalculator" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="1d59f51c-09c9-4dbf-939f-4b2f46dbc925" />
         <ownedOperationsInternal>
-          <operation Id="f3a231fa-e82f-4b86-b388-a709851524a7" name="Operation1" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="f3a231fa-e82f-4b86-b388-a709851524a7" name="CalculateVelocity" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="807a0c77-12f5-43e9-a0e3-dfa431b4985f" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5a194433-3409-40ba-8f63-db53f56ecc2b" name="vibrationData" direction="In" isUnique="false">
+                  <elementDefinition Id="036ec452-aeac-424a-b558-b02922a807d8" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="a8df96ca-9983-4c07-8756-5c892638b979" name="IntegrateAccelerometerData" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="6d476595-6a82-4ff3-a180-cdfd43b9bc6a" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="665e748c-9550-4fe6-b4c6-be5feff2cd3c" name="before" direction="In" isUnique="false">
+                  <elementDefinition Id="3393b927-253b-491e-b3d0-4a1685afe51c" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a2fd3a86-8dc5-4326-9380-91294a593d9d" name="after" direction="In" isUnique="false">
+                  <elementDefinition Id="36099f25-626a-48e6-bcdf-5b1ae6edb685" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e1cdad6c-b504-4cc2-8273-09e07aa5c9a2" name="timeInSeconds" direction="In" isUnique="false">
+                  <elementDefinition Id="8920ce11-0d03-48f7-9005-e49b1d092f67" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="cf87b00f-0336-41c6-a41e-b9ec4adfafaa" name="ConvertGtoIps" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="28fe7ba5-fcd5-4cdf-a8c1-850d01d0a80c" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0cffc94c-3c49-463d-8426-619ff39abcc3" name="number" direction="In" isUnique="false">
+                  <elementDefinition Id="74152a55-fb6d-4737-9050-90362532901b" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -95,6 +248,18 @@
         <ownedOperations>
           <operation Id="bd91f619-3bfc-4b8b-a046-0f6d8b1f2319" name="DataRecieved" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="059fdafa-fe6f-43b4-ad05-3e18bfc53bf4" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f022056a-8805-44a4-97c4-14992cc48dd3" name="sender" direction="In" isUnique="false">
+                  <elementDefinition Id="95f04015-cf50-43b0-8ff7-b50e7f5acf98" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="fd211fee-82ae-4fc2-842f-6439868a7564" name="e" direction="In" isUnique="false">
+                  <elementDefinition Id="4dc8c959-4cde-4333-bbe7-b444298f2e33" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
         </ownedOperations>
       </Interface>
@@ -102,5 +267,19 @@
   </packagedElements>
   <package Id="958721e1-3e32-4e34-97b2-ef3d1ca0e118" name="ArduinoConsoleUML">
     <elementDefinition Id="d8379d6c-4aba-4d77-86f0-b4d693ab7764" />
+    <profileInstances>
+      <packageHasProfileInstances Id="e1e0dfa1-254f-4483-ac98-8bc8e8259acc">
+        <profileInstance Id="b22c83e5-4728-4be9-a45d-78b9caf365ad" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="66d5e80a-811c-4beb-bdf7-8514b1314a26">
+        <profileInstance Id="1a5c65c6-7fb8-47e7-9271-0c514734b1ca" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>

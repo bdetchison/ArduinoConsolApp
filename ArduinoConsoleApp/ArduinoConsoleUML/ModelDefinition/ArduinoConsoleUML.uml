@@ -25,15 +25,183 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="1f8d35fc-4db2-4436-9d4e-a8c529dd6d60">
+            <interfaceMoniker
+              Id="65b20544-23e2-4981-8573-1746443da394"
+              LastKnownName="ISerialPortDataReceiver"
+              LastKnownLocation="ArduinoConsoleUML.uml" />
+          </dependency>
+          <dependency
+            Id="bc7646bf-88ca-494b-a3d1-86d1314a76a9">
+            <classMoniker
+              Id="1d59f51c-09c9-4dbf-939f-4b2f46dbc925"
+              LastKnownName="VelocityCalculator"
+              LastKnownLocation="ArduinoConsoleUML.uml" />
+          </dependency>
+        </suppliersInternal>
+        <targetEnds>
+          <association
+            Id="791f5328-8e6a-4d9f-a50e-77e604a8b086"
+            isDerived="false"
+            sourceEndRoleName="ArduinoDataReceiver"
+            targetEndRoleName="DataAccess"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="1c2129ab-31c1-44b1-9c2d-f4295c3ab1c4"
+              LastKnownName="DataAccess"
+              LastKnownLocation="ArduinoConsoleUML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6b37b21a-2864-4b99-a99e-529b1388779b"
+                  name="ArduinoDataReceiver"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8b2a4bcc-d070-4111-a203-838e4b464920"
+                  name="DataAccess"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="e460c040-aabd-4150-be12-dc5044c7ac45"
+            isDerived="false"
+            sourceEndRoleName="ArduinoDataReceiver"
+            targetEndRoleName="VibrationData"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="d7f93efa-60f7-4da4-82a1-61fd4f67bec8"
+              LastKnownName="VibrationData"
+              LastKnownLocation="ArduinoConsoleUML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4a9d85e0-69dd-4906-ae2c-21778dad2273"
+                  name="ArduinoDataReceiver"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8919bc0c-0249-4f3b-9d43-c44bbb171fb8"
+                  name="VibrationData"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="12c9888c-adf4-4667-82c2-aa88276cc6ae"
+                      name="Lower"
+                      value="N" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="7969a5d8-fa98-4c64-9969-c5c445fdf716"
+                      name="Upper"
+                      value="N" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="d947d9d6-0973-4025-97fa-13021f21bb73"
+            name="vibrationData"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="f4789f01-39bc-4266-bb3e-509827f6b237"
+            name="dataAccess"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
             Id="72ce0b9d-1481-42ef-8105-35daf97787e9"
-            name="Main"
+            name="ArduinoDataReceiver"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="cb05234e-cd8f-4d5a-afe8-daaf927ab4ed"
+                  name="configFilePath"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="6c5e604a-018b-45b0-9c37-b4d91c196a56"
+            name="DataReceived"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4f2ea4e9-f487-4ed3-8c21-6036d304faf1"
+                  name="sender"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ed2d9a56-248a-43c0-88eb-8675f904d87d"
+                  name="e"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -44,6 +212,19 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="3ad8d219-166a-4fda-987a-a584e29c6121"
+            name="connectionString"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
             Id="65298225-7c89-427e-a9ad-f9debbc982fb"
@@ -80,6 +261,68 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="4f02cab0-493c-4080-b13e-80ca1d6ccda7">
+            <interfaceMoniker
+              Id="65b20544-23e2-4981-8573-1746443da394"
+              LastKnownName="ISerialPortDataReceiver"
+              LastKnownLocation="ArduinoConsoleUML.uml" />
+          </dependency>
+          <dependency
+            Id="22f54a11-0840-47d8-b179-a3a9cdee8cc1">
+            <classMoniker
+              Id="16c4729b-a6e1-404b-97c6-69a3f58303a6"
+              LastKnownName="SerialPortCommunicator"
+              LastKnownLocation="ArduinoConsoleUML.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="3a7c5c68-96ed-415e-8324-632100833887"
+            name="showLight"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="85bd0afe-698b-410b-a1fd-e248e5c4f3de"
+            name="lastTimeGathered"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="44e5c6fa-2826-44e5-b747-63e9b4eed8db"
+            name="serialPortCommunicator"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="9a3c8a25-0bea-4393-8e91-74d5d67185e1"
+            name="arduinoDataReceiver"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
             Id="83539106-1648-494e-a386-b337184ab027"
@@ -106,7 +349,24 @@
             isStatic="false"
             isAbstract="true"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="95f04015-cf50-43b0-8ff7-b50e7f5acf98"
+                  name="sender"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4dc8c959-4cde-4333-bbe7-b444298f2e33"
+                  name="e"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperations>
       </Interface>
     </packageHasNamedElement>
@@ -116,7 +376,41 @@
         name="SerialPortCommunicator"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="ca6131e5-6caf-449e-917b-7782828aa1e0"
+            name="LocalSerialPort"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="75130e96-ead1-4e82-be0c-9d4ff9b503f5"
+            name="SerialPortCommunicator"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="01c1498c-0b55-45ac-8186-638c9050be9c"
+                  name="dataPointReceiver"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
@@ -128,12 +422,72 @@
         <ownedOperationsInternal>
           <operation
             Id="807a0c77-12f5-43e9-a0e3-dfa431b4985f"
-            name="Operation1"
+            name="CalculateVelocity"
             isLeaf="false"
-            isStatic="false"
+            isStatic="true"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="036ec452-aeac-424a-b558-b02922a807d8"
+                  name="vibrationData"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="6d476595-6a82-4ff3-a180-cdfd43b9bc6a"
+            name="IntegrateAccelerometerData"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3393b927-253b-491e-b3d0-4a1685afe51c"
+                  name="before"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="36099f25-626a-48e6-bcdf-5b1ae6edb685"
+                  name="after"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8920ce11-0d03-48f7-9005-e49b1d092f67"
+                  name="timeInSeconds"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="28fe7ba5-fcd5-4cdf-a8c1-850d01d0a80c"
+            name="ConvertGtoIps"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="74152a55-fb6d-4737-9050-90362532901b"
+                  name="number"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
