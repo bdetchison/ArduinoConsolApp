@@ -66,21 +66,24 @@ namespace ArduinoConsoleApp
 
         private void PostDataToService(double velocity, DateTime date)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(serviceUrl +  string.Format("?velocity={0}&date={1}",velocity,date));
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(serviceUrl + string.Format("?velocity={0}&date={1}", velocity, date));
             httpWebRequest.ContentType = "multipart/form-data";
-            httpWebRequest.ContentLength= 0;
+            httpWebRequest.ContentLength = 0;
             httpWebRequest.Method = "POST";
-        
-            try
-            {
-                ThreadPool.QueueUserWorkItem(o => { httpWebRequest.GetResponse(); });
-            }
-            catch
-            {
-                //TODO: create real way to handle the service being down
-                //this is OK for now, if the service is down, keep on trucking
-            }
-        }
 
+
+            ThreadPool.QueueUserWorkItem(o =>
+            {
+                try
+                {
+                    httpWebRequest.GetResponse();
+                }
+                catch
+                {
+                    //TODO: create real way to handle the service being down
+                    //this is OK for now, if the service is down, keep on trucking
+                }
+            });
+        }
     }
 }
