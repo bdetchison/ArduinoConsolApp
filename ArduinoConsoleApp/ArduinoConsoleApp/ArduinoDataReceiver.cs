@@ -6,6 +6,7 @@ using System.IO.Ports;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ArduinoConsoleApp
@@ -69,14 +70,10 @@ namespace ArduinoConsoleApp
             httpWebRequest.ContentType = "multipart/form-data";
             httpWebRequest.ContentLength= 0;
             httpWebRequest.Method = "POST";
-            
+        
             try
             {
-                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-                {
-                    var result = streamReader.ReadToEnd();
-                }
+                ThreadPool.QueueUserWorkItem(o => { httpWebRequest.GetResponse(); });
             }
             catch
             {
