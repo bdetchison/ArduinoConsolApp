@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,14 +13,14 @@ namespace ArduinoConsoleApp
     public class ArduinoDataReceiver : ISerialPortDataReceiver
     {
         private List<VibrationData> vibrationData = new List<VibrationData>();
-        private DataAccess dataAccess;
+        private string serviceUrl;
 
         public ArduinoDataReceiver(string configFilePath)
         {
             using (StreamReader sr = new StreamReader(configFilePath))
             {
                 // Read the stream to a string, and write the string to the console.
-                dataAccess = new DataAccess(sr.ReadToEnd());
+                serviceUrl = sr.ReadToEnd();
             }
         }
 
@@ -34,7 +35,7 @@ namespace ArduinoConsoleApp
                 {
                     if (vibrationData.Count > 0)
                     {
-                        dataAccess.InsertData(VelocityCalculator.CalculateVelocity(vibrationData), DateTime.Now);
+                        PostDataToService(VelocityCalculator.CalculateVelocity(vibrationData), DateTime.Now);
                         vibrationData.Clear();
                     }
                 }
@@ -61,5 +62,28 @@ namespace ArduinoConsoleApp
                 throw ex;
             }
         }
+
+        private void PostDataToService(double velocity, DateTime date)
+        {
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(serviceUrl +  string.Format("?velocity={0}&date={1}",velocity,date));
+            httpWebRequest.ContentType = "multipart/form-data";
+            httpWebRequest.ContentLength= 0;
+            httpWebRequest.Method = "POST";
+            
+            try
+            {
+                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    var result = streamReader.ReadToEnd();
+                }
+            }
+            catch
+            {
+                //TODO: create real way to handle the service being down
+                //this is OK for now, if the service is down, keep on trucking
+            }
+        }
+
     }
 }

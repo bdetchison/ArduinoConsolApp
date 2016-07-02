@@ -43,7 +43,7 @@ namespace ArduinoConsoleApp
 
             while (true)
             {
-                Thread.Sleep(2000);
+                Thread.Sleep(2050);
 
                 if (lastTimeGathered == null || DateTime.Now > lastTimeGathered.AddSeconds(10))
                 {

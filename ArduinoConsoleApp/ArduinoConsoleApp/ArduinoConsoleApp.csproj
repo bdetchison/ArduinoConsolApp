@@ -45,7 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArduinoDataReceiver.cs" />
-    <Compile Include="DataAccess.cs" />
     <Compile Include="ISerialPortDataReceiver.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
