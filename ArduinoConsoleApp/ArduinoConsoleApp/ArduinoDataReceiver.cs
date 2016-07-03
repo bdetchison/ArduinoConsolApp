@@ -32,6 +32,8 @@ namespace ArduinoConsoleApp
                 SerialPort serialPort = (SerialPort)sender;
                 var data = serialPort.ReadLine();
 
+                Console.Write(data + Environment.NewLine);
+
                 if (data == "Done\r")
                 {
                     if (vibrationData.Count > 0)
@@ -42,8 +44,6 @@ namespace ArduinoConsoleApp
                 }
                 else
                 {
-                    Console.Write(data + Environment.NewLine);
-
                     var splitData = data.Replace("\r", "").Split(':');
 
                     if (splitData.Length == 4)
@@ -76,10 +76,12 @@ namespace ArduinoConsoleApp
             {
                 try
                 {
-                    httpWebRequest.GetResponse();
+                     var test =httpWebRequest.GetResponse();
+                    var stri = "";
                 }
-                catch
+                catch(Exception ex)
                 {
+                    var str = "";
                     //TODO: create real way to handle the service being down
                     //this is OK for now, if the service is down, keep on trucking
                 }
