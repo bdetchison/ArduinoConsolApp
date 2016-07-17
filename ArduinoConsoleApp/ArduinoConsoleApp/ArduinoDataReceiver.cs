@@ -77,11 +77,9 @@ namespace ArduinoConsoleApp
                 try
                 {
                      var test =httpWebRequest.GetResponse();
-                    var stri = "";
                 }
                 catch(Exception ex)
                 {
-                    var str = "";
                     //TODO: create real way to handle the service being down
                     //this is OK for now, if the service is down, keep on trucking
                 }

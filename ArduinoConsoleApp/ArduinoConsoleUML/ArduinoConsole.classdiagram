@@ -15,22 +15,6 @@
           </dependency>
         </suppliersInternal>
         <targetEnds>
-          <association Id="846e1cc7-01a2-4097-94a6-591ebe677bdf" isDerived="false" sourceEndRoleName="ArduinoDataReceiver" targetEndRoleName="DataAccess" isLeaf="false" isAbstract="false">
-            <classMoniker Id="f2b48b0f-be97-4e00-9f44-baa7032a76e6" LastKnownName="DataAccess" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="b374d3df-e836-4b1e-96ec-9a5a8a2bbc37" name="ArduinoDataReceiver" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="6b37b21a-2864-4b99-a99e-529b1388779b" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="de06b834-816f-4299-980e-7a65e48cb57e" name="DataAccess" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
-                  <elementDefinition Id="8b2a4bcc-d070-4111-a203-838e4b464920" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="791f5328-8e6a-4d9f-a50e-77e604a8b086" />
-          </association>
           <association Id="c1a8be7e-a803-488d-97ca-f10c0e30ff67" isDerived="false" sourceEndRoleName="ArduinoDataReceiver" targetEndRoleName="VibrationData" isLeaf="false" isAbstract="false">
             <classMoniker Id="a26b7fff-67ed-4571-86ff-0449bb78ae24" LastKnownName="VibrationData" />
             <relationshipOwnedElementsInternal>
@@ -92,27 +76,17 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-        </ownedOperationsInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="f2b48b0f-be97-4e00-9f44-baa7032a76e6" name="DataAccess" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="1c2129ab-31c1-44b1-9c2d-f4295c3ab1c4" />
-        <ownedAttributesInternal>
-          <property Id="a08cbd57-3d3b-4bb4-91dc-acc700282b63" name="connectionString" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="3ad8d219-166a-4fda-987a-a584e29c6121" />
-          </property>
-        </ownedAttributesInternal>
-        <ownedOperationsInternal>
-          <operation Id="8924b4ef-c8bf-40c3-9513-258682069e4a" name="InsertData" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="65298225-7c89-427e-a9ad-f9debbc982fb" />
-          </operation>
-          <operation Id="6a56e084-0759-4c42-9bca-cedf6ba3f905" name="DataAccess" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="c00fa40f-2113-46d7-b7a3-633d60db4edf" />
+          <operation Id="a4bb962d-e07f-4bef-a541-0137e7c15d98" name="PostDataToService" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="88ca5b46-34ad-49b3-b421-9497d08f66e3" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="4b162673-985d-49ac-a6f3-555a3e78dd5d" name="connString" direction="In">
-                  <elementDefinition Id="9b8771a3-2c05-4535-826d-48b5d497cd3d" />
+                <parameter Id="5b233719-edcd-48e2-b8d0-1f1ef444da7f" name="velocity" direction="In" isUnique="false">
+                  <elementDefinition Id="a3d8a18a-aa59-499b-907c-2a2d815fc9df" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="44538a9c-4281-4773-9d61-3f1e4be5ba92" name="date" direction="In" isUnique="false">
+                  <elementDefinition Id="b20e8184-0c83-4255-941f-bdf8d26da6a5" />
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
