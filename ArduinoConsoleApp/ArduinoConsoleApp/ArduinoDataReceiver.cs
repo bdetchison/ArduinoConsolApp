@@ -48,12 +48,27 @@ namespace ArduinoConsoleApp
 
                     if (splitData.Length == 4)
                     {
-                        vibrationData.Add(new VibrationData
+                        float x;
+                        float y;
+                        float z;
+
+                        bool xIsFloat = float.TryParse(splitData[1], out x);
+                        bool yIsFloat = float.TryParse(splitData[2], out y);
+                        bool zIsFloat = float.TryParse(splitData[3], out z);
+
+                        if (xIsFloat && yIsFloat && zIsFloat)
                         {
-                            x = float.Parse(splitData[1], CultureInfo.InvariantCulture.NumberFormat),
-                            y = float.Parse(splitData[2], CultureInfo.InvariantCulture.NumberFormat),
-                            z = float.Parse(splitData[3], CultureInfo.InvariantCulture.NumberFormat),
-                        });
+                            vibrationData.Add(new VibrationData
+                            {
+                                x = x,
+                                y = y,
+                                z = z,
+                            });
+                        }
+                        else
+                        {
+                            string blah = "";
+                        }
                     }
                 }
             }

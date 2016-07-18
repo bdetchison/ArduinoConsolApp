@@ -45,13 +45,18 @@ namespace ArduinoConsoleApp
             {
                 //Thread.Sleep(2050);
 
-                if (lastTimeGathered == null || DateTime.Now > lastTimeGathered.AddSeconds(60))
+                if (lastTimeGathered == null || DateTime.Now > lastTimeGathered.AddSeconds(30))
                 {
                     lastTimeGathered = DateTime.Now;
                     showLight = 1;
                     serialPortCommunicator.LocalSerialPort.WriteLine(showLight.ToString());
                 }
                 else if (DateTime.Now > lastTimeGathered.AddSeconds(2) && showLight == 1)
+                {
+                    showLight = 0;
+                    serialPortCommunicator.LocalSerialPort.WriteLine(showLight.ToString());
+                }
+                else if (DateTime.Now > lastTimeGathered.AddSeconds(2)  && DateTime.Now < lastTimeGathered.AddSeconds(3) && showLight ==0)
                 {
                     showLight = 0;
                     serialPortCommunicator.LocalSerialPort.WriteLine(showLight.ToString());
